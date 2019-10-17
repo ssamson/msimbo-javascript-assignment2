@@ -9,12 +9,17 @@ printInt(100);
 
 // //2. Write the function printIntRev(n) taking one parameter n and print all natural numbers in reverse in console (from n to 1).
 // Hint: reverse loop in Q1
-function printIntRev(n) {
-    for(var i=100; i>=n; i--) {
-        console.log(i);
-    }
-}
-printIntRev(0);
+// function printIntRev(n) {
+//     for(var i = n; i >= 1; i--) {
+//         console.log(i);
+//     }
+// }
+//printIntRev(0);
+//start point is -- n
+//where to stop -- 1
+//increment or decremtent --1
+// for loop takes 3 conditions
+//printIntRev(0);
 // //3. Write the function checkInput(x) taking one parameter x and return the string ‘number’ if x is a number; return the string ‘string’ if x is a string; and return ‘boolean’ if x is a boolean. Otherwise returns -1. 
 // Examples:
 // checkInput(5) ====> ‘number’
@@ -24,9 +29,57 @@ printIntRev(0);
 // checkInput([1,2,3,4]) =====> -1
 // Hint: Check JavaScript typeof 
 
+// function checkInput(x) {
+//     if(x === ?) { // return the string 'number' if it's a number - typeof(x)
+//     return 'number';
+//     } else if {
+//         (x === ?) { // return the string 'string' if it's a string
+//     return 'string';
+//     } else if{
+//         (x === ?) {// return the string 'boolean' if it's a boolean
+//     return 'boolean';
+//     } else {
+//         return -1;
+//     }
+//     }
+//     }
+// }
 
+// function checkInput(x) {
+//     if ( typeof x === 'string') {
+//         return 'string';
+//     } else if (
+//         typeof x === 'number') {
+//             return 'number';
+//     } else if (
+//         typeof x === 'boolean') {
+//             return 'boolean';
+//     } else {
+//         return -1;
+//     }
+// }
 
+//solution 2
+// switch(typeof x) {
+//     case "number":
+//         return "number";
+//     case "string":
+//         return "string";
+//     case "boolean":
+//         return "boolean";
+//     default:
+//         return -1
+// }
+// }
+// console.log(checkInput());
 
+//solution 3
+// if(typeof x === 'number' || typeof x === 'string' || typeof x === 'boolean') {
+//     return typeof x;
+// }
+
+//solution 4
+var type = typeof 
 // //4. Write the function simpleEvenAdding(num) taking a number and add up all the even numbers from 1 to num, and return it 
 // 	Examples: simpleEvenAdding(5) ======> 6 (because 2+4 = 6)
 //     simpleEvenAdding(10) ======> 30 (because 2+4+6+8+10 = 30)
