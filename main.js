@@ -26,8 +26,6 @@ printIntRev(0);
 //where to stop -- 1
 //increment or decrement --1
 // for loop takes 3 conditions
-//printIntRev(0);
-
 
 
 // 3. Write the function checkInput(x) taking one parameter x and return the string ‘number’ if x is a number; return the string ‘string’ if x is a string; and return ‘boolean’ if x is a boolean. Otherwise returns -1. 
@@ -93,7 +91,6 @@ function checkInput(x) {
 //     return -1;
 //  }
 // }
-
 // console.log(checkInput());
 
 
@@ -127,23 +124,93 @@ function simpleEvenAdding(num) {
 
 console.log(simpleEvenAdding(5));
 
-// //5. Write the function letterCapitalize(str) taking a string and capitalize the first letter of each word. The given words will be separated by only one space.
+/*
+Solution 2
+function simpleEvenAdding(num) {
+    var solution = 0;
+    for(var i=0; i <= num; i +=2) {
+        solution += i;
+    }
+
+    return solution;
+}
+
+console.log(simpleEvenAdding(10));
+
+*/
+
+/*
+Solution 3 -- Odd
+function simpleOddAdding(num) {
+    var solution = 0;
+    for(var i=1; i <= num; i +=2) {
+        solution += i;
+    }
+
+    return solution;
+}
+
+console.log(simpleOddAdding(10));
+
+*/
+
+// 5. Write the function letterCapitalize(str) taking a string and capitalize the first letter of each word. The given words will be separated by only one space.
 // 	Examples:
 //     letterCapitalize(“hello world”) ===========> “Hello World”
 // letterCapitalize(“you cannot find the answer online”) =====>  “You Cannot Find The Answer Online”
 
 // Hint: There is a built-in function in JavaScript that change string into uppercase. There is also a function to separate string into an array of words. (split)
 
+function letterCapitalize(str) {
+    // separate words
+    var words = str.split(" ");
+    // first char of each word
+    // capitalize it
+    var length = words.length;
+    for(var i=0; i<length; i++) {
+        solution += " " + words[i][0].toUpperCase() + words[i].slice(1);
+    }
 
-// //6. Write the function simpleReverse(str) taking a string and return the string in reversed order. 
+    return solution.slice(1);
+    //return solution.join(" ");
+    
+}
+
+console.log(letterCapitalize("you cannot find answer"));
+
+//.slice
+//
+
+
+// 6. Write the function simpleReverse(str) taking a string and return the string in reversed order. 
 // 	Examples:
-//     // simpleReverse(‘hello’) ======> ‘olleh’
-//     // simpleReverse(‘I Love Code’) ======> ‘edoC evoL I’
+//  simpleReverse(‘hello’) ======> ‘olleh’
+//  simpleReverse(‘I Love Code’) ======> ‘edoC evoL I’
 
 // Hint: Think of how you can loop through a string or array of characters backwards to produce a new string
 
+function simpleReverse(str) {
+    // solution 1
+    // var solution = "";
+    // var length = str.length;
+    // for (var i = 1; i <= length; i++) {
+    //   solution += str[length - i];
+    // }
+  
+    // return solution;
+  
+    // solution 2
+    // transfer str into an array of char
+    var charArray = str.split("");
+    // reverse the array
+    var reversedArray = charArray.reverse();
+    // change array back to str
+    return reversedArray.join("");
+  }
+  
+  // console.log(simpleReverse("good morning"));
 
-// //7. Write the function findDiff(arr) taking an array of numbers as parameter and return the difference between the maximum number and the minimum number (max - min). 
+// 7. Write the function findDiff(arr) taking an array of numbers as parameter and return the difference between the maximum number and the minimum number (max - min). 
 // 	Examples:
 // 	findDiff([1,2,4,6,20, 3]) =======> 19 (Because 20 - 1 = 19)
 // 	findDiff([24, 22, 23, 22, 24]) =======> 2 (Because 24 - 22 = 2)
@@ -152,6 +219,32 @@ console.log(simpleEvenAdding(5));
 // findDiff([]) =======> 0;
 // Hint: Looking for max, min -> max - min.
 
+function findDiff(arr) {
+    // find min & max
+ // var min = arr[0];
+  // var max = arr[0];
+  // var length = arr.length;
+
+  // for (var i = 0; i < length; i++) {
+  //   if (arr[i] < min) {
+  //     min = arr[i];
+  //   }
+  //   if (arr[i] > max) {
+  //     max = arr[i];
+  //   }
+  // }
+
+  var min = Math.min(...arr);
+  var max = Math.max(...arr);
+
+  // var min = Math.min.apply(null, arr);
+  // var max = Math.max.apply(null, arr);
+
+  // max - min
+  return max - min;
+}
+
+// console.log(findDiff([1, 2, 4, 6, 20, 3]));
 
 // //8. Write the function timeConvert(num) taking a number as parameter and return the number of hours and minutes the parameter converts to. Separate the number of hours and minutes with a colon.
 // 	Example:
