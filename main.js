@@ -217,31 +217,39 @@ function simpleReverse(str) {
 // Hint: Looking for max, min -> max - min.
 
 function findDiff(arr) {
-    // find min & max
- // var min = arr[0];
-  // var max = arr[0];
-  // var length = arr.length;
-
-  // for (var i = 0; i < length; i++) {
-  //   if (arr[i] < min) {
-  //     min = arr[i];
-  //   }
-  //   if (arr[i] > max) {
-  //     max = arr[i];
-  //   }
-  // }
-
-  var min = Math.min(...arr);
-  var max = Math.max(...arr);
-
-  // var min = Math.min.apply(null, arr);
-  // var max = Math.max.apply(null, arr);
-
-  // max - min
-  return max - min;
+    var min = Math.min(...arr);
+    var max = Math.max(...arr);
+    return max - min;
 }
 
  console.log(findDiff([1, 2, 4, 6, 20, 3]));
+
+// function findDiff(arr) {
+//     // find min & max
+//  // var min = arr[0];
+//   // var max = arr[0];
+//   // var length = arr.length;
+
+//   // for (var i = 0; i < length; i++) {
+//   //   if (arr[i] < min) {
+//   //     min = arr[i];
+//   //   }
+//   //   if (arr[i] > max) {
+//   //     max = arr[i];
+//   //   }
+//   // }
+
+//   var min = Math.min(...arr);
+//   var max = Math.max(...arr);
+
+//   // var min = Math.min.apply(null, arr);
+//   // var max = Math.max.apply(null, arr);
+
+//   // max - min
+//   return max - min;
+// }
+
+//  console.log(findDiff([1, 2, 4, 6, 20, 3]));
 
 // //8. Write the function timeConvert(num) taking a number as parameter and return the number of hours and minutes the parameter converts to. Separate the number of hours and minutes with a colon.
 // 	Example:
@@ -252,16 +260,25 @@ function findDiff(arr) {
 //     Hint: Dividing(/) and modulo(%) the number 60.
 
 // Separate the number of hours and minutes with a colon.
+
 function timeConvert(num) {
-    // hours
     var hour = parseInt(num / 60);
-    // minutes
     var min = num % 60;
-    // combine them
     return hour + ":" + min;
   }
   
   console.log(timeConvert(59));
+
+// function timeConvert(num) {
+//     // hours
+//     var hour = parseInt(num / 60);
+//     // minutes
+//     var min = num % 60;
+//     // combine them
+//     return hour + ":" + min;
+//   }
+  
+//   console.log(timeConvert(59));
   
 
 // //9. Write the function findStr(str, long) taking two strings as parameters and return how many str you can find in long. Assume Str is not empty string.
