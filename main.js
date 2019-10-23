@@ -12,6 +12,10 @@ printInt(100);
 
 // 2. Write the function printIntRev(n) taking one parameter n and print all natural numbers in reverse in console (from n to 1).
 // Hint: reverse loop in Q1
+//start point is -- n
+//where to stop -- 1
+//increment or decrement --1
+// for loop takes 3 conditions
 
 
 function printIntRev(n) {
@@ -20,12 +24,6 @@ function printIntRev(n) {
     }
 }
 printIntRev(0);
-
-
-//start point is -- n
-//where to stop -- 1
-//increment or decrement --1
-// for loop takes 3 conditions
 
 
 // 3. Write the function checkInput(x) taking one parameter x and return the string ‘number’ if x is a number; return the string ‘string’ if x is a string; and return ‘boolean’ if x is a boolean. Otherwise returns -1. 
@@ -160,7 +158,7 @@ console.log(simpleOddAdding(10));
 // letterCapitalize(“you cannot find the answer online”) =====>  “You Cannot Find The Answer Online”
 
 // Hint: There is a built-in function in JavaScript that change string into uppercase. There is also a function to separate string into an array of words. (split)
-
+// .slice
 function letterCapitalize(str) {
     // separate words
     var words = str.split(" ");
@@ -178,35 +176,34 @@ function letterCapitalize(str) {
 
 console.log(letterCapitalize("you cannot find answer"));
 
-//.slice
-//
-
 
 // 6. Write the function simpleReverse(str) taking a string and return the string in reversed order. 
 // 	Examples:
 //  simpleReverse(‘hello’) ======> ‘olleh’
 //  simpleReverse(‘I Love Code’) ======> ‘edoC evoL I’
-
 // Hint: Think of how you can loop through a string or array of characters backwards to produce a new string
 
 function simpleReverse(str) {
-    // solution 1
-    // var solution = "";
-    // var length = str.length;
-    // for (var i = 1; i <= length; i++) {
-    //   solution += str[length - i];
-    // }
+    
+    var solution = "";
+    var length = str.length;
+    for (var i = 1; i <= length; i++) {
+      solution += str[length - i];
+    }
   
-    // return solution;
-  
-    // solution 2
-    // transfer str into an array of char
-    var charArray = str.split("");
-    // reverse the array
-    var reversedArray = charArray.reverse();
-    // change array back to str
-    return reversedArray.join("");
-  }
+    return solution;
+    }
+
+    console.log(simpleReverse("boston massachusetts"));
+
+//      solution 2
+//     transfer str into an array of char
+//     var charArray = str.split("");
+//      reverse the array
+//     var reversedArray = charArray.reverse();
+//      change array back to str
+//     return reversedArray.join("");
+//   }
   
   // console.log(simpleReverse("good morning"));
 
@@ -244,7 +241,7 @@ function findDiff(arr) {
   return max - min;
 }
 
-// console.log(findDiff([1, 2, 4, 6, 20, 3]));
+ console.log(findDiff([1, 2, 4, 6, 20, 3]));
 
 // //8. Write the function timeConvert(num) taking a number as parameter and return the number of hours and minutes the parameter converts to. Separate the number of hours and minutes with a colon.
 // 	Example:
@@ -254,6 +251,18 @@ function findDiff(arr) {
 //     timeConvert(59)=======> 0:59
 //     Hint: Dividing(/) and modulo(%) the number 60.
 
+// Separate the number of hours and minutes with a colon.
+function timeConvert(num) {
+    // hours
+    var hour = parseInt(num / 60);
+    // minutes
+    var min = num % 60;
+    // combine them
+    return hour + ":" + min;
+  }
+  
+  console.log(timeConvert(59));
+  
 
 // //9. Write the function findStr(str, long) taking two strings as parameters and return how many str you can find in long. Assume Str is not empty string.
 // Example:
@@ -262,6 +271,27 @@ function findDiff(arr) {
 // findStr(“ha”,”abcde”)=======> 0
 // findStr(“h”, “hihelloho”)======> 3
 // Hint: loop through the long, to check if there is any str
+
+function findStr(str, long) {
+   
+    var longLength = long.length;
+    var strLength = str.length;
+    // counter to count the number of str in long
+    var counter = 0;
+    for (var i = 0; i <= longLength - strLength; i++) {
+      if (str === long.slice(i, i + str.length)) {
+        counter++;
+      }
+    }
+    return counter;
+    }
+    console.log(findStr("hi", "dasdhidasdahidashi"));
+  
+    // Solution 2
+//     return long.split(str).length - 1;
+//   }
+  
+  
 
 // //10. Write the function selfDividingNumbers(left, right) taking two number bound as parameters and returns an array of every possible self dividing number between 
 // them, including the bounds. 
@@ -273,6 +303,38 @@ function findDiff(arr) {
 // 	selfDividingNumbers(1, 10) =======> [1,2,3,4,5,6,7,8,9]
 // selfDividingNumbers(12, 21) =======> [12, 15]
 
+function selfDividingNumbers(left, right) {
+    // loop from left to right
+    var solution = [];
+    for (var i = left; i <= right; i++) {
+      // check if current number is self-dividing number
+      if (checkSelfDividing(i)) {
+        solution.push(i);
+      }
+    }
+  
+    return solution;
+  }
+  
+  // helper function to check if the num is self-dividing
+  function checkSelfDividing(num) {
+    // change number into string format
+    var numString = num.toString();
+    // Split string into array of char
+    var numArray = numString.split("");
+  
+    var length = numArray.length;
+    for (var i = 0; i < length; i++) {
+      // if num is not divisible by any digit
+      if (num % ParseInt(numArray[i]) !== 0) {
+        return false;
+      }
+    }
+    // if num is divisible by all digits
+    return true;
+  }
+
+
 
 
 // //11. Write the function moveZeros(nums) taking an array of numbers and move all 0’s to the end of it while maintaining the relative order of the non-zero elements.  For example:
@@ -280,6 +342,29 @@ function findDiff(arr) {
 // moveZeros([1,2,0,0,2,312,33,0,0]) ======> [1,2,2,312,33,0,0,0,0]
 // moveZeros([0,0,0]) ======> [0,0,0]
 // moveZeros([1,2,312,11,2]) =======> [1,2,312,11,2]
+
+function moveZeros(nums) {
+    var solution = [];
+    var counter = 0;
+    var length = nums.length;
+    // loop through the array
+    for (var i = 0; i < length; i++) {
+      if (nums[i] === 0) {
+        counter++;
+      } else {
+        solution.push(nums[i]);
+      }
+    }
+  
+    // adding 0s
+    while (counter > 0) {
+      solution.push(0);
+      counter--;
+    }
+  
+    return solution;
+  }
+  
 
 // //12. Create an average(nums) function that calculates the average of an array of numbers.
 // Examples: 
@@ -290,3 +375,15 @@ function findDiff(arr) {
 
 // Hint: Sum of all elements / number of elements
 
+
+function average(nums) {
+    // get the sum
+    var sum = 0;
+    var length = nums.length;
+    for (var i = 0; i < length; i++) {
+      sum += nums[i];
+    }
+  
+    // sum / length
+    return sum / length;
+  }
